@@ -1,0 +1,255 @@
+[
+    {
+        "id": "8576cdcc4903d828",
+        "type": "tab",
+        "label": "Flow 5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ca16b2aa610d8352",
+        "type": "mqtt in",
+        "z": "8576cdcc4903d828",
+        "name": "",
+        "topic": "home/data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2afe88675f6ffc82",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 280,
+        "wires": [
+            [
+                "e69b08ec71722758",
+                "d74fa42df5334d1a",
+                "4481b00f241ca018"
+            ]
+        ]
+    },
+    {
+        "id": "e69b08ec71722758",
+        "type": "debug",
+        "z": "8576cdcc4903d828",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d74fa42df5334d1a",
+        "type": "function",
+        "z": "8576cdcc4903d828",
+        "name": "function 3",
+        "func": "msg.payload = Number(msg.payload.temp);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "0651a878344a1128"
+            ]
+        ]
+    },
+    {
+        "id": "0651a878344a1128",
+        "type": "ui_gauge",
+        "z": "8576cdcc4903d828",
+        "name": "",
+        "group": "26d961f09d9fb584",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 690,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a14ef03ddf18385b",
+        "type": "mqtt in",
+        "z": "8576cdcc4903d828",
+        "name": "",
+        "topic": "home/exhaust_status",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e2e532b37ee3442c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "e69b08ec71722758"
+            ]
+        ]
+    },
+    {
+        "id": "4481b00f241ca018",
+        "type": "function",
+        "z": "8576cdcc4903d828",
+        "name": "function 1",
+        "func": "msg.payload = Number(msg.payload.hum);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "29398fb14ab0519a"
+            ]
+        ]
+    },
+    {
+        "id": "29398fb14ab0519a",
+        "type": "ui_gauge",
+        "z": "8576cdcc4903d828",
+        "name": "",
+        "group": "26d961f09d9fb584",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 680,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2afe88675f6ffc82",
+        "type": "mqtt-broker",
+        "name": "homeautomation",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "26d961f09d9fb584",
+        "type": "ui_group",
+        "name": "sensor",
+        "tab": "ce5a0160b5a45313",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e2e532b37ee3442c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ce5a0160b5a45313",
+        "type": "ui_tab",
+        "name": "Home Automation",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7ccb85a9b9be3f0c",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
