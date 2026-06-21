@@ -55,6 +55,14 @@ home/exhaust_status
 - Voice control using Alexa or Google Assistant
 - Data logging and cloud storage
 
+  ## Libraries Used
+
+* WiFi.h
+* PubSubClient.h
+* ArduinoJson.h
+* DHT.h
+
+
 ## Author
 
 Sajindas M
