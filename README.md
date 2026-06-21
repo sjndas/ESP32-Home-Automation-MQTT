@@ -25,10 +25,10 @@ This project implements an IoT-based home automation system using ESP32, MQTT, N
 
 Device    ESP32 Pin 
 ---------------------
- DHT11----GPIO4 
- Light Relay----GPIO25 
- Fan Relay----GPIO26 
- Exhaust Relay----GPIO27
+ 1.DHT11----GPIO4 
+ 2.Light Relay----GPIO25 
+ 3.Fan Relay----GPIO26 
+ 4.Exhaust Relay----GPIO27
 
 ## MQTT Topics
 
